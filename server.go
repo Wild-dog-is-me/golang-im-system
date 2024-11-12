@@ -36,7 +36,6 @@ func NewServer(ip string, port int) *Server {
 func (this *Server) ListenMessager() {
 	for {
 		msg := <-this.Message
-
 		//将msg发送给全部的在线User
 		this.mapLock.Lock()
 		for _, cli := range this.OnlineMap {
